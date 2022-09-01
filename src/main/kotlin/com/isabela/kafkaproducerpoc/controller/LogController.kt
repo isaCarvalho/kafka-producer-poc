@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/product")
 class LogController(
-    @Value("\${kafka.topics.product}") val topic: String,
+    @Value("\${kafka.topics.task}") val topic: String,
     @Autowired
     private val kafkaTemplate: KafkaTemplate<String, Any>
 ) {

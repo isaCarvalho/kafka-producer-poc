@@ -11,7 +11,7 @@ import org.springframework.kafka.core.KafkaAdmin
 class KafkaConfig(
     @Value("\${kafka.bootstrapAddress}")
     private val servers: String,
-    @Value("\${kafka.topics.product}")
+    @Value("\${kafka.topics.task}")
     private val topic: String
 ) {
 
