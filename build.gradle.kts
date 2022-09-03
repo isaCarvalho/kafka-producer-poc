@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.ir.backend.js.compile
 
 plugins {
 	id("org.springframework.boot") version "2.7.3"
@@ -31,6 +32,7 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("ch.qos.logback:logback-core")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("com.google.protobuf:protobuf-java:3.6.1")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
