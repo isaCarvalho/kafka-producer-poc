@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/task")
 class TaskController(
     @Value("\${kafka.topics.task}") val topic: String,
     @Autowired
@@ -54,7 +54,7 @@ class TaskController(
 
             ResponseEntity.ok().build()
         } catch (e: Exception) {
-            log.error("Exception: {}", e)
+            log.error("Exception: ${e.message}")
             ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error to send message")
         }
     }
