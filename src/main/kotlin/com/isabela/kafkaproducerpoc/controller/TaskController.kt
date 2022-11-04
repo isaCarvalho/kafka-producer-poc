@@ -13,6 +13,7 @@ import org.springframework.kafka.support.KafkaHeaders
 import org.springframework.messaging.Message
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -28,6 +29,7 @@ class TaskController(
     private val log = LoggerFactory.getLogger(javaClass)
 
     @PostMapping
+    @CrossOrigin(origins = ["http://localhost:3000", "http://localhost:3001"], allowCredentials = "true", allowedHeaders = ["Requestor-Type"], exposedHeaders = ["X-Get-Header"])
     fun post(@Validated @RequestBody task: Task): ResponseEntity<Any> {
         return try {
             log.info("Receiving product request")
